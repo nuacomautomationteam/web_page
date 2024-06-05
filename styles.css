@@ -1,0 +1,7 @@
+#root {
+  background: linear-gradient(#955544, #454465);
+  height: 100vh;
+}
+#root .white_text {
+  color: rgba(198, 197, 215, 0.74);
+}

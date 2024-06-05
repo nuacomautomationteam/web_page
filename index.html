@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Web page for automation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="root">
+    <h2 class="white_text">We'll add something here, if it will be really needed</h2>
+    <p class="white_text">Now let's test our call back widget</p>
+</div>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script>
+    var nuacom_w_id = "1660570504623",
+        s = document.getElementsByTagName("script")[0],
+        nuacom_w = document.createElement("script");
+    nuacom_w.async = true;
+    nuacom_w.src = "//app.nuacom.ie/call_back_widget/?id=" + nuacom_w_id;
+    s.parentNode.insertBefore(nuacom_w, s);
+</script>
+<script>
+    let onModalOpen = function () {
+        console.log("onModalOpen");
+    };
+    let onModalClose = function () {
+        console.log("onModalClose");
+    };
+    let onDisplayWidget = function () {
+        console.log("onDisplayWidget");
+    };
+    let onCallNumber = function (customer_number, call_action, customer_name, customer_email) {
+        console.log(customer_number, call_action, customer_name, customer_email);
+    };
+    let onScheduleCallNumber = function (mumber_to_call, date_time_to_call, customer_name, customer_email) {
+        console.log(mumber_to_call, date_time_to_call, customer_name, customer_email)
+    };
+    nuacomWidgetRegisterCallbackFunctions = {
+        "onModalOpen": onModalOpen,
+        "onModalClose": onModalClose,
+        "onDisplayWidget": onDisplayWidget,
+        "onCallNumber": onCallNumber,
+        "onScheduleCallNumber": onScheduleCallNumber
+    };
+</script>
+</body>
+</html>
